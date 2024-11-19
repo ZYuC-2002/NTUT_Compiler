@@ -1,0 +1,2 @@
+ocamlc -o test test.ml
+./test

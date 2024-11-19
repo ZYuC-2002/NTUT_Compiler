@@ -1,0 +1,19 @@
+// start with a file containing only comments
+
+// then complete this file as the tests progress
+
+// ex2
+// forward 100
+// forward 100 + 1 * 0
+
+// ex3
+// forward 100
+// turnleft 90
+// color red
+// forward 100
+
+// ex4
+// repeat 4 {
+//   forward 100
+//   turnleft 90
+// }
