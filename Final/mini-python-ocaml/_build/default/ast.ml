@@ -30,8 +30,8 @@ type expr =
   | Ebinop of binop * expr * expr
   | Eunop of unop * expr
   | Ecall of ident * expr list
-  | Elist of expr list (** {[ [e1,e2,...] ]} *)
-  | Eget of expr * expr (** {[ e1[e2] ]} *)
+  | Elist of expr list
+  | Eget of expr * expr 
 
 and stmt =
   | Sif of expr * stmt * stmt

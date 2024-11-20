@@ -13,34 +13,21 @@
 #  ; build_dir = In_build_dir "default"
 #  ; instrument_with = []
 #  }
-$ /usr/bin/ocamlc.opt -config > /tmp/dune_2451a3_output
-$ (cd _build/default && /usr/bin/ocamldep.opt -modules -impl minipython.ml) > _build/default/.minipython.eobjs/minipython.impl.d
-$ (cd _build/default && /usr/bin/ocamldep.opt -modules -impl compile.ml) > _build/default/.minipython.eobjs/compile.impl.d
-$ (cd _build/default && /usr/bin/ocamldep.opt -modules -impl typing.ml) > _build/default/.minipython.eobjs/typing.impl.d
-$ (cd _build/default && /usr/bin/ocamldep.opt -modules -intf x86_64.mli) > _build/default/.minipython.eobjs/x86_64.intf.d
-$ (cd _build/default && /home/zyc/.opam/default/bin/menhir parser.mly --base parser --infer-write-query parser__mock.ml.mock)
+$ /usr/bin/ocamlc.opt -config > /tmp/dune_3f7e67_output
 $ (cd _build/default && /usr/bin/ocamldep.opt -modules -impl ast.ml) > _build/default/.minipython.eobjs/ast.impl.d
-$ (cd _build/default && /usr/bin/ocamldep.opt -modules -impl parser__mock.ml.mock) > _build/default/.minipython.eobjs/parser__mock.impl.d
-$ (cd _build/default && /usr/bin/ocamllex -q -o lexer.ml lexer.mll)
-$ (cd _build/default && /usr/bin/ocamldep.opt -modules -impl lexer.ml) > _build/default/.minipython.eobjs/lexer.impl.d
 $ (cd _build/default && /usr/bin/ocamlc.opt -g -bin-annot -I .minipython.eobjs/byte -no-alias-deps -opaque -o .minipython.eobjs/byte/ast.cmo -c -impl ast.ml)
-$ (cd _build/.sandbox/b854b931d91f84c5b930d668c1f69935/default && /usr/bin/ocamlc.opt -g -I .minipython.eobjs/byte -short-paths -i -impl parser__mock.ml.mock) > _build/.sandbox/b854b931d91f84c5b930d668c1f69935/default/parser__mock.mli.inferred
-$ (cd _build/default && /home/zyc/.opam/default/bin/menhir parser.mly --base parser --infer-read-reply parser__mock.mli.inferred)
-$ (cd _build/default && /usr/bin/ocamldep.opt -modules -intf parser.mli) > _build/default/.minipython.eobjs/parser.intf.d
-$ (cd _build/default && /usr/bin/ocamldep.opt -modules -impl x86_64.ml) > _build/default/.minipython.eobjs/x86_64.impl.d
-$ (cd _build/default && /usr/bin/ocamldep.opt -modules -impl parser.ml) > _build/default/.minipython.eobjs/parser.impl.d
+$ (cd _build/.sandbox/822ea93efd59fb6651bdbec96187c49f/default && /usr/bin/ocamlc.opt -g -I .minipython.eobjs/byte -short-paths -i -impl parser__mock.ml.mock) > _build/.sandbox/822ea93efd59fb6651bdbec96187c49f/default/parser__mock.mli.inferred
 $ (cd _build/default && /usr/bin/ocamlc.opt -g -bin-annot -I .minipython.eobjs/byte -no-alias-deps -opaque -o .minipython.eobjs/byte/typing.cmo -c -impl typing.ml)
+> File "typing.ml", line 35, characters 4-9:
+> 35 |   | Elist el ->
+>          ^^^^^
+> Error: This variant pattern is expected to have type Ast.var option
+>        There is no constructor Elist within type option
+[2]
 $ (cd _build/default && /usr/bin/ocamlopt.opt -g -I .minipython.eobjs/byte -I .minipython.eobjs/native -intf-suffix .ml -no-alias-deps -opaque -o .minipython.eobjs/native/ast.cmx -c -impl ast.ml)
-$ (cd _build/default && /usr/bin/ocamlc.opt -g -bin-annot -I .minipython.eobjs/byte -no-alias-deps -opaque -o .minipython.eobjs/byte/x86_64.cmi -c -intf x86_64.mli)
 $ (cd _build/default && /usr/bin/ocamlc.opt -g -bin-annot -I .minipython.eobjs/byte -no-alias-deps -opaque -o .minipython.eobjs/byte/parser.cmi -c -intf parser.mli)
-$ (cd _build/default && /usr/bin/ocamlopt.opt -g -I .minipython.eobjs/byte -I .minipython.eobjs/native -intf-suffix .ml -no-alias-deps -opaque -o .minipython.eobjs/native/typing.cmx -c -impl typing.ml)
 $ (cd _build/default && /usr/bin/ocamlc.opt -g -bin-annot -I .minipython.eobjs/byte -no-alias-deps -opaque -o .minipython.eobjs/byte/compile.cmo -c -impl compile.ml)
 $ (cd _build/default && /usr/bin/ocamlc.opt -g -bin-annot -I .minipython.eobjs/byte -no-alias-deps -opaque -o .minipython.eobjs/byte/lexer.cmo -c -impl lexer.ml)
 $ (cd _build/default && /usr/bin/ocamlopt.opt -g -I .minipython.eobjs/byte -I .minipython.eobjs/native -intf-suffix .ml -no-alias-deps -opaque -o .minipython.eobjs/native/compile.cmx -c -impl compile.ml)
-$ (cd _build/default && /usr/bin/ocamlopt.opt -g -I .minipython.eobjs/byte -I .minipython.eobjs/native -intf-suffix .ml -no-alias-deps -opaque -o .minipython.eobjs/native/x86_64.cmx -c -impl x86_64.ml)
 $ (cd _build/default && /usr/bin/ocamlopt.opt -g -I .minipython.eobjs/byte -I .minipython.eobjs/native -intf-suffix .ml -no-alias-deps -opaque -o .minipython.eobjs/native/lexer.cmx -c -impl lexer.ml)
-$ (cd _build/default && /usr/bin/ocamlc.opt -g -bin-annot -I .minipython.eobjs/byte -no-alias-deps -opaque -o .minipython.eobjs/byte/minipython.cmo -c -impl minipython.ml)
 $ (cd _build/default && /usr/bin/ocamlopt.opt -g -I .minipython.eobjs/byte -I .minipython.eobjs/native -intf-suffix .ml -no-alias-deps -opaque -o .minipython.eobjs/native/parser.cmx -c -impl parser.ml)
-$ (cd _build/default && /usr/bin/ocamlopt.opt -g -I .minipython.eobjs/byte -I .minipython.eobjs/native -intf-suffix .ml -no-alias-deps -opaque -o .minipython.eobjs/native/minipython.cmx -c -impl minipython.ml)
-$ (cd _build/default && /usr/bin/ocamlopt.opt -g -o minipython.exe .minipython.eobjs/native/ast.cmx .minipython.eobjs/native/x86_64.cmx .minipython.eobjs/native/compile.cmx .minipython.eobjs/native/parser.cmx .minipython.eobjs/native/lexer.cmx .minipython.eobjs/native/typing.cmx .minipython.eobjs/native/minipython.cmx)
-# Promoting "_build/default/minipython.exe" to "minipython.exe"
