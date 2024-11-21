@@ -1,3 +1,4 @@
+MENHIR := /home/zyc/.opam/default/bin/menhir
 
 all: minipython.exe
 	./minipython.exe --debug test.py

@@ -1,3 +1,4 @@
+MENHIR := /home/zyc/.opam/default/bin/menhir
 
 all: minipython.exe
 	dune exec ./minipython.exe test.py
