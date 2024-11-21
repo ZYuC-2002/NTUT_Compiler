@@ -1,4 +1,7 @@
-# lexer.mll
+# 有 TODO ㄉ檔案
+## compile.ml
+
+# lexer.mll (same as HW2)
 
 这个 lexer.mll 文件是为一个简化的 Python 编译器编写的词法分析器。它使用 OCaml 的 ocamllex 工具来将源码转换成词法符号。下面我们逐步解释代码的各个部分。
 
@@ -182,7 +185,7 @@ and string = parse
   - 将解析得到的词法符号列表逐个加入队列。
   - 返回队列中的下一个词法符号。
 
-# parser.mly
+# parser.mly (same as HW2)
 
 `new_line lexbuf` 是一個函數調用，用於處理當前行的結束並準備解析下一行。這個函數通常會更新詞法分析器的行號和列號，以便在出錯時能夠提供準確的錯誤位置。
 
@@ -340,3 +343,51 @@ ident:
 總結來說，這個文件定義了 Mini-Python 語言的語法規則，並且使用 Menhir 工具生成解析器。解析器將詞法分析器生成的詞法符號轉換成抽象語法樹（AST）。
 
 Similar code found with 1 license type
+
+# ast.ml
+## 與 HW#2 差異
+```
+(** {3 Typed trees}
+
+   This is the output of the type checker and the input of the code
+   generation. *)
+
+(** In the typed trees, all the occurrences of the same variable
+   point to a single record of the following type. *)
+type var = {
+  v_name: string;
+  mutable v_ofs: int; (** position wrt %rbp *)
+}
+
+(** Similarly, all the occurrences of a given function all point
+   to a single record of the following type. *)
+type fn = {
+  fn_name: string;
+  fn_params: var list;
+}
+
+type texpr =
+  | TEcst of constant
+  | TEvar of var
+  | TEbinop of binop * texpr * texpr
+  | TEunop of unop * texpr
+  | TEcall of fn * texpr list
+  | TElist of texpr list
+  | TErange of texpr (** list(range(e1)) *)
+  | TEget of texpr * texpr (** {[ e1[e2] ]} *)
+
+type tstmt =
+  | TSif of texpr * tstmt * tstmt
+  | TSreturn of texpr
+  | TSassign of var * texpr
+  | TSprint of texpr
+  | TSblock of tstmt list
+  | TSfor of var * texpr * tstmt
+  | TSeval of texpr
+  | TSset of texpr * texpr * texpr (** {[ e1[e2] = e3 ]} *)
+
+and tdef = fn * tstmt
+
+and tfile = tdef list
+  (** the block of global statements is now a `main` function *)
+```
