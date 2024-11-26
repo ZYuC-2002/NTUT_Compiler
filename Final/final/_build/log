@@ -1,0 +1,24 @@
+# dune build minipython.exe
+# OCAMLPARAM: unset
+# Shared cache: disabled
+# Shared cache location: /home/zyc/.cache/dune/db
+# Workspace root: /mnt/e/1School/Compiler/Final/final
+# Auto-detected concurrency: 16
+# Dune context:
+#  { name = "default"
+#  ; kind = "default"
+#  ; profile = Dev
+#  ; merlin = true
+#  ; fdo_target_exe = None
+#  ; build_dir = In_build_dir "default"
+#  ; instrument_with = []
+#  }
+$ /usr/bin/ocamlc.opt -config > /tmp/dune_46545b_output
+$ (cd _build/default && /usr/bin/ocamldep.opt -modules -impl typing.ml) > _build/default/.minipython.eobjs/typing.impl.d
+$ (cd _build/default && /usr/bin/ocamlc.opt -g -bin-annot -I .minipython.eobjs/byte -no-alias-deps -opaque -o .minipython.eobjs/byte/typing.cmo -c -impl typing.ml)
+> File "typing.ml", line 101, characters 2-30:
+> 101 |   (checked_defs, checked_main)
+>         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> Error: This expression has type 'a * 'b
+>        but an expression was expected of type Ast.tfile = Ast.tdef list
+[2]
